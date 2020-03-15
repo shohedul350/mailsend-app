@@ -63,7 +63,7 @@ const clearSuccess =()=>{
      dispatch({
         type:CLEAR_SUCCESS,
      })
-    }, 3000);
+    }, 4000);
   }
 
     return (
