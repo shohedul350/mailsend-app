@@ -1,6 +1,8 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
-require('dotenv').config();
+const dotenv = require('dotenv');
+
+dotenv.config({ path: './.env' });
 
 const router = express.Router();
 
@@ -12,13 +14,13 @@ router.post('/send', (req, res) => {
  <p>You have a new contact rewuest</p>
  <h3>Contact Details</h3>
  <ul>
-   <li>Name: ${req.body.name}</li>
-   <li>Sunject: ${req.body.subject}</li>
-   <li>Email: ${req.body.email}</li>
-   <li>Phone: ${req.body.phone}</li>
+   <li>Name: ${req.body.Name}</li>
+   <li>Sunject: ${req.body.Subject}</li>
+   <li>Email: ${req.body.Email}</li>
+   <li>Phone: ${req.body.Phone}</li>
  </ul>
  <h3>Message</h3>
- <p>${req.body.message}</p>
+ <p>${req.body.Message}</p>
  `;
 
   // create reusable transporter object using the default SMTP transport
@@ -27,6 +29,7 @@ router.post('/send', (req, res) => {
     secure: false, // true for 465, false for other ports
     auth: {
       user: process.env.EMAIL, // generated ethereal user
+
       pass: process.env.PASSWORD, // generated ethereal password
     },
     tls: {
