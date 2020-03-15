@@ -12,6 +12,6 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.send('hello');
 });
-app.use('/api', require());
+app.use('/api', require('./routes/contactRoute'));
 
 app.listen(PORT, () => { console.log(`The app is running on port ${PORT}`); });
