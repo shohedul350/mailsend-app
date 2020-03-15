@@ -9,9 +9,6 @@ app.use(express.json());
 
 
 // routes
-app.get('/', (req, res) => {
-  res.send('hello');
-});
 app.use('/api', require('./routes/contactRoute'));
 
 if (process.env.NODE_ENV === 'production') {
